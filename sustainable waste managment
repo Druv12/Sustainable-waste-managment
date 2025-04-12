@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Waste Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header, footer {
+            background-color: #2f855a;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #38a169;
+            padding: 10px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #2f855a;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #276749;
+        }
+
+        .graph {
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .chatbot {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .chat-display {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            background: #f0fff4;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+        }
+
+        .slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            scroll-snap-type: x mandatory;
+            padding: 10px 0;
+        }
+
+        .slide {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            background-color: #e6fffa;
+            border: 1px solid #b2f5ea;
+            border-radius: 10px;
+            padding: 20px;
+            min-width: 250px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .review-section {
+            background-color: #f0fff4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-section h3 {
+            margin-bottom: 10px;
+        }
+
+        .review-section label {
+            margin-top: 10px;
+            display: block;
+        }
+
+        .review-section textarea {
+            width: 100%;
+            height: 100px;
+        }
+
+        .review-section .rating input {
+            margin-right: 10px;
+        }
+
+        .reviews-list {
+            margin-top: 20px;
+        }
+
+        .review {
+            background-color: #e6fffa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .review .rating {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Sustainable Waste Management</h1>
+    </header>
+
+    <nav>
+        <a href="#account">Account Settings</a>
+        <a href="#daily-task">Daily Task</a>
+        <a href="#progress">Progress Report</a>
+        <a href="#qa">Q&A</a>
+        <a href="#library">Content Library</a>
+        <a href="#chat">Chatbot</a>
+        <a href="#reviews">Reviews</a>
+    </nav>
+    <img src="https://irp.cdn-website.com/6157e284/dms3rep/multi/The+Benefits+of+Using+Sustainable+Waste+Management+Practices.png" alt="Logo" width="2000" height="1000" style="align-content: center;">
+
+    <div class="container">
+
+        <div id="account" class="section">
+            <h2>Account Settings</h2>
+            <label>Username:</label>
+            <input type="text" placeholder="Enter your username">
+
+            <label>Password:</label>
+            <input type="password" placeholder="Enter your password">
+
+            <label>Email ID:</label>
+            <input type="email" placeholder="Enter your email">
+
+            <button>Save</button>
+        </div>
+
+        <div id="daily-task" class="section">
+            <h2>Daily Task</h2>
+            <label>Pickup Location:</label>
+            <input type="text" placeholder="Enter location">
+
+            <label>Time Slot:</label>
+            <select>
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+            </select>
+
+            <label>Set Reminder (Calendar):</label>
+            <input type="date">
+            <input type="time">
+
+            <button>Set Task</button>
+        </div>
+
+        <div id="progress" class="section">
+            <h2>Progress Report</h2>
+            <div class="graph">
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+
+        <div id="qa" class="section">
+            <h2>Q&A Section</h2>
+            <label>Ask a Question:</label>
+            <textarea placeholder="Type your question here..."></textarea>
+            <button>Submit Question</button>
+        </div>
+
+        <div id="library" class="section">
+            <h2>Customer Content Library</h2>
+            <div class="slider">
+                <div class="slide">Article 1: Benefits of Segregating Waste</div>
+                <div class="slide">Article 2: How to Compost at Home</div>
+                <div class="slide">Article 3: Community Waste Initiatives</div>
+                <div class="slide">Article 4: Reducing Plastic Usage</div>
+                <div class="slide">Article 5: Recycling Tips for Beginners</div>
+            </div>
+        </div>
+
+        <div id="chat" class="section chatbot">
+            <h2>Chatbot</h2>
+            <div class="chat-display" id="chatDisplay"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+
+        <!-- Review Section -->
+        <div id="reviews" class="section review-section">
+            <h3>Leave a Review</h3>
+            <label for="reviewText">Your Review:</label>
+            <textarea id="reviewText" placeholder="Share your thoughts about the service..."></textarea>
+
+            <label for="rating">Rating (1 to 5):</label>
+            <div class="rating">
+                <input type="radio" name="rating" value="1"> 1
+                <input type="radio" name="rating" value="2"> 2
+                <input type="radio" name="rating" value="3"> 3
+                <input type="radio" name="rating" value="4"> 4
+                <input type="radio" name="rating" value="5"> 5
+            </div>
+
+            <button onclick="submitReview()">Submit Review</button>
+
+            <div class="reviews-list" id="reviewsList">
+                <!-- Reviews will appear here -->
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Sustainable Waste Management Platform</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('pieChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Today - 30%', 'Yesterday - 70%'],
+                datasets: [{
+                    data: [30, 70],
+                    backgroundColor: ['#38a169', '#c6f6d5'],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Waste Contribution Progress',
+                        font: {
+                            size: 18
+                        }
+                    }
+                }
+            }
+        });
+
+        function sendMessage() {
+            const input = document.getElementById("chatInput");
+            const display = document.getElementById("chatDisplay");
+            const message = input.value.trim();
+            if (message) {
+                const userMessage = document.createElement("div");
+                userMessage.textContent = "You: " + message;
+                display.appendChild(userMessage);
+
+                const botReply = document.createElement("div");
+                botReply.textContent = "Bot: Thank you for your message. We'll get back to you soon.";
+                display.appendChild(botReply);
+
+                input.value = "";
+                display.scrollTop = display.scrollHeight;
+            }
+        }
+
+        // Review Submission
+        function submitReview() {
+            const reviewText = document.getElementById("reviewText").value.trim();
+            const rating = document.querySelector('input[name="rating"]:checked');
+            const reviewsList = document.getElementById("reviewsList");
+
+            if (reviewText && rating) {
+                const reviewElement = document.createElement("div");
+                reviewElement.classList.add("review");
+
+                const ratingText = `Rating: ${rating.value}`;
+                const reviewContent = `<div class="rating">${ratingText}</div><p>${reviewText}</p>`;
+
+                reviewElement.innerHTML = reviewContent;
+                reviewsList.appendChild(reviewElement);
+
+                // Clear the form
+                document.getElementById("reviewText").value = "";
+                document.querySelector('input[name="rating"]:checked').checked = false;
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/66484813981b6c56477206be/1hu55j3d4';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+</body>
+
+</html>
